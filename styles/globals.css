@@ -16,48 +16,30 @@ a {
 }
 
 :root{
-  --backColor: #2a9d8f;
-  --typeSpeed: 5s;
+  --backColor: #232323;
+  --typeSpeed: 3s;
   --typeLength: 24;
-  --textColor: #e9c46a;
-  background-color: #2a9d8f;
+  --textColor: #eeeeee;
+  --subColor: #02ffab;
+  background-color: var(--backColor);
 }
 
 .startpage-holder{
   background-color: var(--backColor);
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-areas: "typew" "explore";
-  grid-template-rows: 6fr 1fr;
+  max-width: 100vw;
+  height: 200vh;
+  display: flex;
+  flex-direction: column;
 
 }
 
-.explore{
-  grid-area: explore;
-  justify-self: end;
-  align-self: center;
-  margin-right: 5%;
-}
-
-.explore-text{
-  font-size: 4vw;
-  opacity: 0;
-  font-family: "JetBrains Mono", monospace;
-  color: var(--textColor);
-  animation: fade 2s ease calc(var(--typeSpeed) + 1.5s) forwards;
-}
-
-.explore-text:hover{
-  text-decoration: underline;
-  cursor: pointer;
-}
 
 .typew-holder {
   grid-area: typew;
   display: grid;
   place-content: center;
   text-align: center;
+  height: 100vh;
 }
 
 
@@ -77,10 +59,11 @@ a {
   bottom: 0;
   left: 0;
   font-size: 1vw;
+  background: var(--subColor);
 }
 
 .typew-text::after{
-  background: var(--textColor);
+  background: var(--subColor);
   width: 1em;
   animation: type var(--typeSpeed) steps(var(--typeLength)) 0.5s forwards,
   blink 1s step-start calc(var(--typeSpeed) + 1s) infinite;
@@ -91,14 +74,35 @@ a {
   animation: type var(--typeSpeed) steps(var(--typeLength)) 0.5s forwards; 
 }
 
+.name{
+  color: var(--subColor);
+}
+
 .typew-subtitle {
-  color: #f89c51;
+  color: var(--textColor);
   font-size: 5vw;
   opacity: 0;
   transform: translateY(3rem);
   animation: fade 2s ease calc(var(--typeSpeed) + 1s) forwards;
 }
 
+.information{
+  display: flex;
+
+}
+
+.infoBox{
+}
+
+.info{
+  color: var(--textColor);
+  font-size: 2vw;
+
+}
+.infoHead{
+  color: var(--subColor);
+  font-size: 3vw;
+}
 @keyframes type {
   to {left: 100%;}
   
@@ -141,4 +145,30 @@ a {
   .typew-subtitle{
       font-size: 2vw;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--backColor);
+  border-radius: 10px;
+  display: flex;
+  align-self: center;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--textColor);
+  max-height: 10vh;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--subColor);
+  
 }
