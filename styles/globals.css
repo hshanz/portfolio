@@ -172,3 +172,11 @@ a {
   background: var(--subColor);
   
 }
+
+.icon {
+  cursor: pointer
+}
+
+.icon:hover{
+  color: var(--subColor);
+}
